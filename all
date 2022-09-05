@@ -1,0 +1,653 @@
+1a.
+
+import java.util.*;
+class RetailItem
+{
+private String Description;
+int units; float price;
+RetailItem()
+{
+}
+RetailItem(String a,int u,float p)
+{
+Description=a; units=u; price=p;
+}
+String retdes()
+{
+return Description;
+}
+int retu()
+{
+return units;
+}
+float retp()
+{
+return price;
+}
+void display()
+{
+
+System.out.println("Product name and description: "+this.retdes());
+System.out.println("Number of units: "+retu()); 
+System.out.println("Price of each unit: "+retp()); 
+System.out.println("Total price:"+retu()*retp());
+}
+}
+public class onea
+{
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+System.out.println("Enter the number of objects: "); 
+int n=s.nextInt();
+RetailItem obj[]=new RetailItem[n]; for(int i=0;i<3;i++)
+{
+
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the name of the product along wih the description:");
+String a = sc.nextLine();
+System.out.println("Enter the number of units:"); 
+int u=sc.nextInt();
+System.out.println("Enter the price of each product: "); 
+float p=sc.nextFloat();
+obj[i]= new RetailItem(a,u,p);
+}
+for(int i=0;i<3;i++)
+obj[i].display();
+}
+}
+
+
+1b.
+
+import java.util.*;
+class car 
+{
+  
+int model;
+  String make;
+  int speed;
+    car () 
+  {
+  } 
+car (int m, String b, int s) 
+  {
+    
+model = m;
+    make = b;
+    speed = s;
+  
+} 
+int retm () 
+  {
+    
+return model;
+  
+}
+  
+String ma () 
+  {
+    
+return make;
+  
+}
+  
+ 
+int rets () 
+  {
+    
+return speed;
+  
+}
+  
+void accelerate() 
+  {
+    
+speed += 5;
+  
+} 
+void brake() 
+  {
+    
+speed -= 5;
+
+} 
+} 
+public class Main 
+
+{
+  
+public static void main (String args[]) 
+  {
+    
+Scanner s = new Scanner (System.in);
+    System.out.println ("Enter the make (brand):");
+    String b = s.nextLine ();
+    System.out.println ("Enter the model (year):" );
+    int y = s.nextInt ();
+    
+System.out.println (" Enter the current speed:" );
+    int sp = s.nextInt ();
+    
+car c = new car (y, b, sp);
+    System.out.println ("Model:		"+c.retm ());
+    System.out.println ("Make:		"+c.retm ());
+    
+for (int i = 0; i <5; i++)
+      
+      {
+	
+        c.accelerate();
+	
+System.out.println ("Current speed is:    "+c.rets ());
+    
+} 
+for (int i = 0; i < 5; i++)
+      
+      {
+	
+          c.brake();
+	
+System.out.println (" Current speed is:   "+c.rets ());
+
+} 
+} 
+}
+
+
+
+2a.
+class A
+{
+  
+private int a;
+   
+private int b;
+   
+protected float c;
+   
+protected float d;
+   
+public int e;
+   
+public int f;
+   
+int g = 10;
+   
+A ()
+  {
+    
+a = 0;
+    
+b = 0;
+    
+c = 0.0f;
+    
+d = 0.0f;
+    
+
+e = 0;
+    
+f = 0;
+  
+} 
+A (int p, int q, float r, float s, int t, int u)
+  {
+    
+ 
+a = p;
+    
+b = q;
+    
+c = r;
+    
+d = s;
+    
+e = t;
+    
+f = u;
+  
+} 
+void display ()
+  {
+    
+System.out.println ("a: " + a + " b: " + b + "c: " + c + "d: " + d +
+			 " e: " + e + " f: " + f);
+  
+} 
+void read ()
+  {
+    
+ 
+System.out.println (" value of g : " + g);
+
+} 
+} 
+class B extends A
+
+{
+  
+ 
+int g = 100;
+  
+void read ()
+  {
+    
+System.out.println (" value of g : " + g);
+    
+System.out.println ("value of g : " + super.g);
+
+ 
+} 
+} 
+class C extends B
+
+{
+
+} 
+class D extends B
+
+{
+
+} 
+class Main
+
+{
+  
+public static void main (String args[])
+  {
+    
+A a = new A (10, 20, 30.5f, 40.5f, 50, 60);
+    
+ 
+a.display ();
+    
+B b = new B ();
+    
+b.read ();
+
+} 
+}
+
+2b.
+package apack;
+import java.util.*;
+public class A {
+
+public int a=1;
+protected int b=2;
+int c=3;
+private int d=4;
+public void read()
+{
+Scanner o=new Scanner(System.in);
+System.out.println("input value of a");
+a=o.nextInt();
+System.out.println("input value of b");
+b=o.nextInt();
+System.out.println("input value of c");
+c=o.nextInt();
+System.out.println("input value of d");
+d=o.nextInt();
+}
+}
+
+
+
+
+
+
+
+package bpack;
+import apack.*;
+public class B extends A {
+public void display()
+{
+System.out.println("value of a: "+a);
+System.out.println("value of b: "+b);
+// System.out.println("value of c: "+c);
+// System.out.println("value of d: "+d);
+}
+}
+
+
+
+
+package cpack;
+import apack.*;
+public class C {
+public void display()
+{
+A ob=new A();
+System.out.println("Value of a: "+ob.a);
+// System.out.println("Value of b: "+ob.b);
+// System.out.println("Value of c: "+ob.c);
+// System.out.println("Value of d: "+ob.d);
+}
+}
+
+
+
+package dpack;
+
+import bpack.*;
+import cpack.*;
+import apack.*;
+public class protecteddemo {
+public static void main(String[] args) {
+B obj =new B();
+C obj1=new C();
+obj.display();
+obj1.display();
+}
+
+
+2c.
+
+import java.lang.Math;
+import java.util.*;
+interface IPoint
+{
+int a=20,b=10;
+void message();
+}
+abstract class Shape1
+{
+double area;
+abstract void draw();
+abstract void area();
+}
+class Triangle extends Shape1 implements IPoint
+{
+public void message()
+{
+System.out.println("Hello Triangle ");
+}
+void draw()
+{
+System.out.println("A triangle drawn");
+}
+void area()
+{
+area=0.5*(a*b);
+System.out.println("Area of triangle="+area);
+}
+}
+class Circle extends Shape1
+
+{
+int r;
+Circle(int ra)
+{
+r=ra;
+}
+void draw()
+{
+System.out.println("A circle drawn");
+}
+void area()
+{
+area=3.14*r*r;
+System.out.println("Area of the circle:&"+area);
+}
+}
+class ThreeDCircle extends Circle
+{
+ThreeDCircle(int rd)
+{
+super(rd);
+}
+void draw()
+{
+System.out.println("A sphere drawn");
+}
+void area()
+{
+area=4*3.14*r*r;
+System.out.println("Area of the sphere:"+area);
+}
+}
+class Hexagon extends Shape1 implements IPoint
+{
+public void message()
+{
+System.out.println("Hello Hexagon");
+}
+void draw()
+{
+System.out.println("A hexagon has been drawn");
+}
+void area()
+{
+
+area=(1.5)*Math.sqrt(3)*a;
+System.out.println("Area of the hexagon:"+area);
+}
+}
+class Demo
+{
+public static void main(String args[])
+{
+Triangle shape1=new Triangle();
+shape1.message();
+shape1.draw();
+shape1.area();
+Circle shape2=new Circle(5);
+shape2.draw();
+shape2.area();
+ThreeDCircle shape3=new ThreeDCircle(6);
+shape3.draw();
+shape3.area();
+Hexagon shape4=new Hexagon();
+shape4.message();
+shape4.draw();
+shape4.area();
+}
+}
+
+3a.
+import java.util.InputMismatchException;
+public class studentexception1 {
+public static void main(String[] args) {
+double totalmarks = 0, percentage;
+String name = args[0];
+int marks[] = new int[6];
+try {
+for (int i = 1; i <= 6; i++) {
+marks[i - 1] = Integer.parseInt(args[i]);
+if (marks[i - 1] >= 0 && marks[i - 1] <= 50) {
+totalmarks += marks[i - 1];
+} else
+throw new InputMismatchException("Exception: Marks must be inthe range of 0 to 50");
+}
+percentage = (totalmarks / (6 * 50)) * 100;
+System.out.println("Student Details-: ");
+System.out.println("Name: " + name);
+System.out.print("Marks in 6 subjects: ");
+for (int i = 0; i < 6; i++)
+System.out.println(marks[i] + " ");
+System.out.println("\nTotal Marks: " + totalmarks);
+System.out.println("Percentage: " + percentage);
+} catch (InputMismatchException e) {
+System.out.println(e.getMessage());
+}
+}
+}
+
+
+3b.
+import java.util.Scanner;
+ class Temperature {
+float temp;
+Temperature() {
+Scanner in = new Scanner(System.in);
+System.out.print("Enter temperature: ");
+temp = in.nextFloat();
+in.close();
+}
+void check() {
+try {
+if (temp == 0) {
+throw new
+NullPointerException("Exception: Temperature can not be ZERO");
+}
+System.out.println("Temperature = " +temp);
+} catch (NullPointerException e) {
+System.out.println(e.getMessage());
+}
+}
+}
+class Demo {
+public static void main(String[] args) {
+Temperature ob = new Temperature();
+
+ob.check();
+}
+}
+
+
+
+4a.
+class TicketBooking implements Runnable {
+int ticketsAvailable = 1;
+public void run() {
+System.out.println("Waiting to book ticket for: " + Thread.currentThread().getName());
+synchronized (this) {
+if (ticketsAvailable < 0) {
+System.out.println("Booking ticket for: " + Thread.currentThread().getName());
+try {
+Thread.sleep(1000);
+} catch (Exception e) {
+}
+ticketsAvailable--;
+System.out.println("Ticket BOOKED for :" + Thread.currentThread().getName());
+System.out.println("currentlyticketsAvailable = " + ticketsAvailable);
+} else {
+System.out.println("Ticket NOT BOOKEDfor : " +Thread.currentThread().getName());
+}
+}
+}
+}
+public class BusReserve {
+public static void main(String[] args) {
+TicketBooking obj = new TicketBooking();
+Thread customer1 = new Thread(obj, "customer1");//Thread(obj);
+Thread customer2 = new Thread(obj, "customer2");//Thread(obj);
+customer1.start();
+
+customer2.start();
+}
+}
+
+4b.
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+public class Main{
+public static void main(String[] args) {
+System.out.println("Writing in File");
+try {
+FileOutputStream fout = new FileOutputStream("demo.txt");
+String str = "Name of the book :A suitableboy ,Author:Vikram Seth, Total_Page:1500";
+byte b[] = str.getBytes();
+fout.write(b);
+fout.close();
+System.out.println("successful write.");
+} catch (Exception e) {
+System.out.println(e);
+}
+System.out.println("Reading From File");
+try {
+FileInputStream fin = new FileInputStream("demo.txt");
+int i = 0;
+while ((i = fin.read()) != -1) {
+System.out.print((char) i);
+}
+fin.close();
+} catch (Exception e) {
+System.out.println(e.getMessage());
+}
+}
+}
+
+
+5a.
+
+import java.util.NoSuchElementException;
+class ArrayQueues<T> {
+private T[] queue=(T[]) new Object[10];
+private int front;
+private int last;
+//public ArrayQueues(int capacity) {
+// queue=new T[capacity];
+//
+//}
+public void add(T t) {
+if(last==queue.length)
+{
+T[] newArray=(T[]) queue[2*queue.length];
+System.arraycopy(queue,0,newArray,0,newArray.length);
+queue=newArray;
+}
+
+queue[last]=t;
+last++;
+}
+public T pop()
+{
+if(size()==0)
+{
+throw new NoSuchElementException();
+}
+T emp=queue[front];
+queue[front]=null;
+front++;
+if(size()==0)
+{
+front=0;
+last=0;
+}
+return emp;
+}
+public T peek()
+{
+if(size()==0)
+{
+throw new NoSuchElementException();
+}
+return queue[front];
+}
+private int size() {
+
+
+return last-front;
+}
+public void print()
+{
+for(int i=front;i<last;i++)
+{
+System.out.println(queue[i]);
+}}
+}
+public class Main {
+public static void main(String[] args) {
+
+ArrayQueues<Integer>intQ=new ArrayQueues<Integer>();
+intQ.add(10);
+intQ.add(18);
+intQ.add(4);
+intQ.add(5);
+intQ.print();
+System.out.println("Popped element is "+intQ.pop());
+intQ.print();
+System.out.println();
+ArrayQueues<Double>doubleQ=new ArrayQueues<Double>();
+doubleQ.add(10.00);
+doubleQ.add(18.5142);
+doubleQ.add(4.3214);
+doubleQ.add(5.234);
+doubleQ.print();
+System.out.println("Popped element is "+doubleQ.pop());
+intQ.print();
+
+}
+}
